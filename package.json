@@ -1,0 +1,19 @@
+{
+  "name": "amaan-iqbal-atm-automated-teller-machine1-",
+  "version": "1.0.0",
+  "description": "I created simple ATM programming machich with Ts.",
+  "main": "index.js",
+  "type": "module",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amaan Iqbal",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.2.19"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7"
+  }
+}
