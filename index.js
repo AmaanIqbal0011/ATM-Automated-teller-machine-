@@ -1,11 +1,16 @@
-#! usr/bin/env node
-import inquirer from "inquirer";
+#! /usr/bin/env node
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const inquirer_1 = __importDefault(require("inquirer"));
 // Bank name
 console.log("Welcome to the XYZ Bank");
 //    user balance
 let myBalance = 12000;
 // ask user to enter pin
-let pin = await inquirer.prompt({
+let pin = await inquirer_1.default.prompt({
     name: "pin",
     type: "number",
     message: "Welcome. Please enter your ATM PIN. This is your first entry, so it's important to remember this PIN."
@@ -13,14 +18,14 @@ let pin = await inquirer.prompt({
 // user pin
 let mypin = pin.pin;
 // ask pin to further process
-let enterPin = await inquirer.prompt({
+let enterPin = await inquirer_1.default.prompt({
     name: "userpin",
     type: "number",
     message: "Enter Your Pin For Further Processing"
 });
 //  user enetr correct pin then ask other question
 if (enterPin.userpin === mypin) {
-    let operationAnswer = await inquirer.prompt([
+    let operationAnswer = await inquirer_1.default.prompt([
         {
             name: "operation",
             type: "list",
@@ -29,7 +34,7 @@ if (enterPin.userpin === mypin) {
         }
     ]);
     if (operationAnswer.operation === "Withdraw") {
-        let withdrawMethod = await inquirer.prompt([
+        let withdrawMethod = await inquirer_1.default.prompt([
             {
                 name: "methodWithdraw",
                 type: "list",
@@ -39,7 +44,7 @@ if (enterPin.userpin === mypin) {
         ]);
         //   if user select easypaisa  
         if (withdrawMethod.methodWithdraw === "Easypaisa") {
-            let easypaisaDetail = await inquirer.prompt([
+            let easypaisaDetail = await inquirer_1.default.prompt([
                 {
                     name: "easypaesaDetail",
                     type: "number",
@@ -68,7 +73,7 @@ if (enterPin.userpin === mypin) {
         ;
         //   if user select Googlepay
         if (withdrawMethod.methodWithdraw === "Googlepay") {
-            let googlepayDetail = await inquirer.prompt([
+            let googlepayDetail = await inquirer_1.default.prompt([
                 {
                     name: "googlePay",
                     type: "number",
@@ -105,7 +110,7 @@ if (enterPin.userpin === mypin) {
     // if user select currency converter
     if (operationAnswer.operation === "Currency Converter") {
         console.log(`Your Current Balance is ${myBalance} in USD`);
-        let currencyConverter = await inquirer.prompt([
+        let currencyConverter = await inquirer_1.default.prompt([
             {
                 name: "currencyWithCountry",
                 type: "list",
